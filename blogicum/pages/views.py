@@ -1,12 +1,12 @@
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 
 
-def about(request):
-    template = 'pages/about.html'
+def about(request: HttpRequest) -> HttpResponse:
+    template: str = 'pages/about.html'
     return render(request, template)
 
 
-def rules(request):
-    print(type(request))
-    template = 'pages/rules.html'
+def rules(request: HttpRequest) -> HttpResponse:
+    template: str = 'pages/rules.html'
     return render(request, template)

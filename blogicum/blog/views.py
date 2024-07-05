@@ -1,7 +1,10 @@
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
+from typing import Union
 
 
-posts = [
+ANOTATION_POST = dict[str, Union[str, int]]
+posts: list[ANOTATION_POST] = [
     {
         'id': 0,
         'location': 'Остров отчаянья',
@@ -45,20 +48,20 @@ posts = [
 ]
 
 
-def index(request):
-    template = 'blog/index.html'
-    context = {'post': posts}
+def index(request: HttpRequest) -> HttpResponse:
+    template: str = 'blog/index.html'
+    context: dict[str, list[ANOTATION_POST]] = {'post': posts}
     return render(request, template, context)
 
 
-def post_detail(request, pk):
-    template = 'blog/detail.html'
-    post = posts[pk]
-    context = {'post': post}
+def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
+    template: str = 'blog/detail.html'
+    post: ANOTATION_POST = posts[pk]
+    context: dict[str, ANOTATION_POST] = {'post': post}
     return render(request, template, context)
 
 
-def category_posts(request, category_slug):
-    template = 'blog/category.html'
-    context = {'category_slug': category_slug}
+def category_posts(request: HttpRequest, category_slug: str) -> HttpResponse:
+    template: str = 'blog/category.html'
+    context: dict[str, str] = {'category_slug': category_slug}
     return render(request, template, context)

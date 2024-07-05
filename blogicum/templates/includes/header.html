@@ -9,7 +9,8 @@
             width="30" 
             height="30" 
             class="d-inline-block align-top" 
-            alt="">
+            alt=""
+          >
           Блогикум
       </a>        
       <ul class="nav  nav-pills">
@@ -17,23 +18,24 @@
             <a 
               class="nav-link 
               {% if view_name == 'blog:index' %}active{% endif %}" 
-              href="{% url 'blog:index' %}">
-              Лента записей
+              href="{% url 'blog:index' %}"
+              >Лента записей
             </a>
           </li>
           <li class="nav-item">              
             <a 
               class="nav-link 
               {% if view_name == 'pages:about' %}active{% endif %}" 
-              href="{% url 'pages:about' %}">
-              О проекте
+              href="{% url 'pages:about' %}"
+              >О проекте
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link 
-            {% if view_name == 'pages:rules' %}active{% endif %}" 
-            href="{% url 'pages:rules' %}">
-              Наши правила
+            <a 
+              class="nav-link 
+              {% if view_name == 'pages:rules' %}active{% endif %}" 
+              href="{% url 'pages:rules' %}"
+              >Наши правила
             </a>
           </li>
       </ul>      
