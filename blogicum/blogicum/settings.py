@@ -25,12 +25,17 @@ SECRET_KEY = 'django-insecure-l5ao^ct1xar9kq2_7yu@@^!q1xp83(aa!v-bvc(e%4gk12fyml
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+STATICFILES_DIRS = [
+    BASE_DIR / 'static_dev',
+]
 
 # Application definition
 
 INSTALLED_APPS = [
+    'blog.apps.BlogConfig',
+    'pages.apps.PagesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
