@@ -2,29 +2,27 @@
 
 {% block title %}
   Лента записей
-  Остров отчаянья. 25 октября 1659 года
-{% endblock title %}
+  {{ post.location }} {{ post.date }}
+{% endblock %}
 
 {% block content %}
-  <div class="container py-5">
-    <article>
-      <ul>
-        <li>
-          {{ post.location }}
-        </li>
-        <li>
-          {{ post.date }}
-        </li>
-        <li>
-          Категория: 
-          <a href="{% url 'blog:category_posts' post.category %}">
-            {{ post.category }}
-          </a>
-        </li>
-      </ul>         
-      <p>
-        {{ post.text }}
-      </p>
-    </article>                
-  </div>
-{% endblock content %}
+  <article>
+    <ul>
+      <li>
+        {{ post.location }}
+      </li>
+      <li>
+        {{ post.date }}
+      </li>
+      <li>
+        Категория: 
+        <a href="{% url 'blog:category_posts' post.category %}">
+          {{ post.category }}
+        </a>
+      </li>
+    </ul>         
+    <p>
+      {{ post.text|linebreaksbr }}
+    </p>
+  </article>
+{% endblock %}

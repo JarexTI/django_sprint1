@@ -1,10 +1,10 @@
-from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
 from typing import Union
 
+from django.http import HttpRequest, HttpResponse, Http404
+from django.shortcuts import render
 
-ANOTATION_POST = dict[str, Union[str, int]]
-posts: list[ANOTATION_POST] = [
+POST = dict[str, Union[str, int]]
+posts: list[POST] = [
     {
         'id': 0,
         'location': 'Остров отчаянья',
@@ -47,17 +47,20 @@ posts: list[ANOTATION_POST] = [
     },
 ]
 
+POSTS_BY_ID: set[Union[str, int]] = {post['id'] for post in posts}
+
 
 def index(request: HttpRequest) -> HttpResponse:
     template: str = 'blog/index.html'
-    context: dict[str, list[ANOTATION_POST]] = {'post': posts}
+    context: dict[str, list[POST]] = {'post': posts}
     return render(request, template, context)
 
 
 def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
     template: str = 'blog/detail.html'
-    post: ANOTATION_POST = posts[pk]
-    context: dict[str, ANOTATION_POST] = {'post': post}
+    if pk not in POSTS_BY_ID:
+        raise Http404("Ошибка 404")
+    context: dict[str, POST] = {'post': posts[pk]}
     return render(request, template, context)
 
 

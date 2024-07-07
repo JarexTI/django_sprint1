@@ -146,6 +146,9 @@ dmypy.json
 .mypy_cache
 
 # папки со статикой и медиа
+blogicum/static_dev/
+html/css
+html/img
 media/
 
 # Testing

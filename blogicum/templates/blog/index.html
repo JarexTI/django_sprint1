@@ -2,35 +2,33 @@
 
 {% block title %}
   Лента записей
-{% endblock title %}
+{% endblock %}
 
 {% block content %}
-  <div class="container py-5">
-    <h1>Лента записей</h1>
-    {% for post_union in post reversed %}
-      <hr>
-      <article>
-        <ul>
-          <li>
-            {{ post_union.location }}
-          </li>
-          <li>
-            {{ post_union.date }}
-          </li>
-          <li>
-            Категория: 
-            <a href="{% url 'blog:category_posts' post_union.category %}">
-              {{ post_union.category }}
-            </a>
-          </li>
-        </ul>
-        <p>
-          {{ post_union.text|truncatewords:10 }}
-        </p>
-        <a href="{% url 'blog:post_detail' post_union.id %}">
-          Читать полный текст
-        </a>
-      </article>
-    {% endfor %}           
-  </div>
-{% endblock content %}
+  <h1>Лента записей</h1>
+  {% for post_union in post reversed %}
+    <hr>
+    <article>
+      <ul>
+        <li>
+          {{ post_union.location }}
+        </li>
+        <li>
+          {{ post_union.date }}
+        </li>
+        <li>
+          Категория: 
+          <a href="{% url 'blog:category_posts' post_union.category %}">
+            {{ post_union.category }}
+          </a>
+        </li>
+      </ul>
+      <p>
+        {{ post_union.text|truncatewords:10 }}
+      </p>
+      <a href="{% url 'blog:post_detail' post_union.id %}">
+        Читать полный текст
+      </a>
+    </article>
+  {% endfor %}
+{% endblock %}
