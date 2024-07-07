@@ -1,6 +1,6 @@
 from typing import Union
 
-from django.http import HttpRequest, HttpResponse, Http404
+from django.http import Http404, HttpRequest, HttpResponse
 from django.shortcuts import render
 
 POST = dict[str, Union[str, int]]
