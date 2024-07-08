@@ -47,7 +47,7 @@ posts: list[POST] = [
     },
 ]
 
-POSTS_BY_ID: set[Union[str, int]] = {post['id'] for post in posts}
+POSTS_BY_ID: dict[Union[str, int], POST] = {post['id']: post for post in posts}
 
 
 def index(request: HttpRequest) -> HttpResponse:
@@ -59,8 +59,8 @@ def index(request: HttpRequest) -> HttpResponse:
 def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
     template: str = 'blog/detail.html'
     if pk not in POSTS_BY_ID:
-        raise Http404("Ошибка 404")
-    context: dict[str, POST] = {'post': posts[pk]}
+        raise Http404('Ошибка 404')
+    context: dict[str, POST] = {'post': POSTS_BY_ID[pk]}
     return render(request, template, context)
 
 
