@@ -47,7 +47,7 @@ posts: list[POST] = [
     },
 ]
 
-POSTS_BY_ID: dict[Union[str, int], POST] = {post['id']: post for post in posts}
+POSTS_BY_ID: dict[int, POST] = {post['id']: post for post in posts}
 
 
 def index(request: HttpRequest) -> HttpResponse:
