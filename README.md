@@ -2,8 +2,7 @@
 
 Описание проекта
 ---
-Проект представляет собой блог-платформу на Django. В нем реализованы ключевые функции: отображение публикаций, детальные страницы постов, категории и статические страницы. 
-Проект проходит автоматическое тестирование с помощью `pytest`.
+Проект представляет собой блог-платформу на Django. В нем реализованы ключевые функции: отображение публикаций, детальные страницы постов, категории и статические страницы. Проект проходит автоматическое тестирование с помощью `pytest`.
 
 Основные задачи
 ---
@@ -51,8 +50,7 @@ http://127.0.0.1:8000/
 
 Project Description
 ---
-This project is a blog platform built with Django. It includes key features such as post display, detailed post pages, categories, and static pages.  
-The project undergoes automated testing using `pytest`.
+This project is a blog platform built with Django. It includes key features such as post display, detailed post pages, categories, and static pages. The project undergoes automated testing using `pytest`.
 
 Main Tasks
 ---
